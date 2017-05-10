@@ -1,0 +1,9 @@
+---
+applications:
+- name: stardog-cf-example
+  memory: 512M
+  random-route: true
+  path: build/libs/stardog-cf-example.jar
+  services:
+  - stardogservice1
+

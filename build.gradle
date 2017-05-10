@@ -1,0 +1,54 @@
+buildscript {
+    ext {
+        springBootVersion = '1.3.7.RELEASE'
+        stardogVersion = '4.2.1'
+    }
+
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url "https://repo.spring.io/plugins-release" }
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/milestone" }
+    maven { url "http://repo.spring.io/snapshot" }
+repositories {
+  maven {
+    url "http://maven.stardog.com"
+  }
+}
+}
+
+dependencies {
+    // Spring Boot
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+
+    // client modules
+    compile "com.complexible.stardog:client-snarl:${stardogVersion}"
+    compile "com.complexible.stardog:client-http:${stardogVersion}"
+
+    // Testing
+    testCompile "junit:junit"
+}
+
+jar {
+    baseName = "stardog-cf-example"
+    version = ""
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14'
+}

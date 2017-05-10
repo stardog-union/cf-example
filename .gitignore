@@ -1,0 +1,8 @@
+# build output
+dist
+build
+bin
+lib
+.idea
+.gradle/
+gradle.properties
