@@ -15,6 +15,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +36,8 @@ public class StardogController {
      */
     @RequestMapping(
         value = "/add",
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        method = RequestMethod.POST)
     @ResponseBody
     String addRequest(HttpServletRequest request) {
         JsonObject aOutJson = new JsonObject();
@@ -76,7 +78,8 @@ public class StardogController {
      */
     @RequestMapping(
         value = "/clear",
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        method = RequestMethod.POST)
     @ResponseBody
     String deleteAll(HttpServletRequest request) {
         JsonObject aOutJson = new JsonObject();
@@ -105,7 +108,8 @@ public class StardogController {
      */
     @RequestMapping(
         value = "/select",
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        method = RequestMethod.GET)
     @ResponseBody
     String getAll(HttpServletRequest request) {
         JsonObject aOutJson = new JsonObject();
@@ -151,7 +155,8 @@ public class StardogController {
      */
     @RequestMapping(
         value = "/vcap",
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        method = RequestMethod.GET)
     @ResponseBody
     String vcapDump(HttpServletRequest request) {
         mLogger.debug("select called");
